@@ -49,7 +49,11 @@ func (t *Tree[T]) GetChildrenList(parent T) []T {
 	if t.Root == nil {
 		return []T{}
 	}
-	return t.Root.Find(parent).GetChildrenToList()
+	parentNode := t.Root.Find(parent)
+	if parentNode == nil {
+		return []T{}
+	}
+	return parentNode.GetChildrenToList()
 }
 
 func (n *Node[T]) GetChildrenToList() []T {
