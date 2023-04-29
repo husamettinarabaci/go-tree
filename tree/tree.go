@@ -5,12 +5,12 @@ import (
 )
 
 type Tree[T comparable] struct {
-	Root *Node[T]
+	Root *Node[T] `json:"root"`
 }
 
 type Node[T comparable] struct {
-	Value    T
-	Children []*Node[T]
+	Value    T          `json:"value"`
+	Children []*Node[T] `json:"children"`
 }
 
 func (t *Tree[T]) Add(v T, parent T) {
